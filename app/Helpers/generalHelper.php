@@ -129,14 +129,14 @@ function productStockValue($id)
 
 function projectNameAuth()
 {
-    return "ETEMAD FOODS & DRINKS";
+    return "K&S GLOBAL TRADERS";
 }
 
 function projectNameHeader()
 {
-    return "ETEMAD FOODS & DRINKS";
+    return "K&S GLOBAL TRADERS";
 }
 function projectNameShort()
 {
-    return "EFD";
+    return "K&S";
 }

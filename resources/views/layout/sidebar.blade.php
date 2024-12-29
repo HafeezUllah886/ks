@@ -114,6 +114,24 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="#production" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarApps">
+                        <i class="ri-shopping-cart-line"></i><span data-key="t-apps">Production</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="production">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a onclick="newWindow('{{ route('productions.create') }}')" class="nav-link"
+                                    data-key="t-chat">Create Production</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('productions.index') }}" class="nav-link" data-key="t-chat"> Purchase
+                                    History </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#stock" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarApps">
                         <i class="ri-stack-line"></i><span data-key="t-apps">Stocks</span>

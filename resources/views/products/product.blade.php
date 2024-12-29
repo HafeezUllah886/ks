@@ -24,6 +24,8 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Category</th>
+                            <th>Gross Weight</th>
+                            <th>Net Weight</th>
                             <th>Purchase Price</th>
                             <th>Sale Price</th>
                             <th>Default</th>
@@ -35,6 +37,8 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->category->name }}</td>
+                                    <td>{{ number_format($item->grossweight, 2) }}</td>
+                                    <td>{{ number_format($item->netweight, 2) }}</td>
                                     <td>{{ number_format($item->pprice, 2) }}</td>
                                     <td>{{ number_format($item->price, 2) }}</td>
                                     <td>{{ $item->isDefault }}</td>
@@ -77,6 +81,26 @@
                                                             <option value="Yes" @selected($item->isDefault == "Yes")>Yes</option>
 
                                                        </select>
+                                                    </div>
+                                                    <div class="form-group mt-2">
+                                                        <label for="grossweight">Gross Weight</label>
+                                                        <div class="input-group">
+                                                            <input type="number" step="any" name="grossweight" required
+                                                            value="{{ $item->grossweight }}" min="0" id="grossweight"
+                                                            class="form-control">
+                                                            <span class="input-group-text">KG</span>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group mt-2">
+                                                        <label for="netweight">Net Weight</label>
+                                                        <div class="input-group">
+                                                            <input type="number" step="any" name="netweight" required
+                                                            value="{{ $item->netweight }}" min="0" id="netweight"
+                                                            class="form-control">
+                                                            <span class="input-group-text">KG</span>
+                                                        </div>
+
                                                     </div>
                                                     <div class="form-group mt-2">
                                                         <label for="pprice">Purchase Price</label>
@@ -146,6 +170,26 @@
                                 <option value="Yes" >Yes</option>
 
                            </select>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="grossweight">Gross Weight</label>
+                            <div class="input-group">
+                                <input type="number" step="any" name="grossweight" required
+                                min="0" id="grossweight"
+                                class="form-control">
+                                <span class="input-group-text">KG</span>
+                            </div>
+
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="netweight">Net Weight</label>
+                            <div class="input-group">
+                                <input type="number" step="any" name="netweight" required
+                                 min="0" id="netweight"
+                                class="form-control">
+                                <span class="input-group-text">KG</span>
+                            </div>
+
                         </div>
                         <div class="form-group mt-2">
                             <label for="pprice">Purchase Price</label>

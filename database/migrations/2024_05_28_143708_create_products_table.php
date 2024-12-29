@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->foreignId('catID')->constrained('categories', 'id');
             $table->string('isDefault')->default('No');
+            $table->float('grossweight');
+            $table->float('netweight');
             $table->float('pprice');
             $table->float('price');
             $table->float('discount')->default(0);

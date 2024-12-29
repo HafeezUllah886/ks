@@ -20,6 +20,7 @@ require __DIR__ . '/reports.php';
 require __DIR__ . '/quot.php';
 require __DIR__ . '/todo.php';
 require __DIR__ . '/ajaxRequests.php';
+require __DIR__ . '/production.php';
 
 Route::middleware('auth')->group(function () {
 
