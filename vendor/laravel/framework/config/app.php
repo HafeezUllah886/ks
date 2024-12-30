@@ -94,7 +94,7 @@ return [
     ],
 
     'databases' => [
-        'u676177725_ks',
+        'u676177725_Ks',
         'test',
     ],
 
