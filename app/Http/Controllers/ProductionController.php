@@ -83,9 +83,11 @@ class ProductionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(production $production)
+    public function show($id)
     {
-        //
+        $production = production::find($id);
+
+        return view('production.view', compact('production'));
     }
 
     /**

@@ -143,7 +143,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Diamond Softwares
+                                Design & Develop by <a href="https://wa.me/923088396356">Nexgen Pakistan</a>
                             </div>
                         </div>
                     </div>

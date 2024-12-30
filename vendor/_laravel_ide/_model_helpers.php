@@ -2053,6 +2053,7 @@ namespace App\Models {
      * @property int $productID
      * @property int $productionID
      * @property int $id
+     * @property-read \App\Models\products $product
      * @method static \Illuminate\Database\Eloquent\Builder|productiondetails whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder|productiondetails whereProductionid($value)
      * @method static \Illuminate\Database\Eloquent\Builder|productiondetails whereProductid($value)

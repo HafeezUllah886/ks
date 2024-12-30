@@ -12,9 +12,7 @@
                             <th>#</th>
                             <th>Product</th>
                             <th>Quantity</th>
-                            <th>Cost / Unit</th>
-                            <th>Total Cost</th>
-                            <th>Batch Number</th>
+                            <th>Cost</th>
                             <th>Date</th>
                             <th>Action</th>
                         </thead>
@@ -23,10 +21,8 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $production->product->name }}</td>
-                                    <td>{{ number_format($production->qty / $production->unit->value) }} {{ $production->unit->name }}</td>
-                                    <td>{{ number_format($production->totalcost / $production->qty, 2) }}</td>
-                                    <td>{{ number_format($production->totalcost) }}</td>
-                                    <td>{{ $production->batchNumber }}</td>
+                                    <td>{{ number_format($production->qty) }}</td>
+                                    <td>{{ number_format($production->cost, 2) }}</td>
                                     <td>{{ date('d M Y', strtotime($production->date)) }}</td>
                                     <td>
                                         <div class="dropdown">
@@ -36,14 +32,14 @@
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-end">
                                                 <li>
-                                                    <button class="dropdown-item" onclick="newWindow('{{route('production.show', $production->id)}}')"
+                                                    <button class="dropdown-item" onclick="newWindow('{{route('productions.show', $production->id)}}')"
                                                         onclick=""><i
                                                             class="ri-eye-fill align-bottom me-2 text-muted"></i>
                                                         View
                                                     </button>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" href="{{route('production.edit', $production->id)}}">
+                                                    <a class="dropdown-item" href="{{route('productions.edit', $production->id)}}">
                                                         <i class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                                         Edit
                                                     </a>
@@ -63,14 +59,12 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th colspan="4">Total</th>
-                                <th>{{$productions->sum('totalcost')}}</th>
+                                <th colspan="3">Total</th>
+                                <th>{{$productions->sum('cost')}}</th>
                             </tr>
                     </table>
                 </div>
-                <div class="card-footer">
-                    {{$productions->links()}}
-                </div>
+
             </div>
         </div>
     </div>

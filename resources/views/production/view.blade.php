@@ -11,7 +11,7 @@
                             <div class="card-header border-bottom-dashed p-4">
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
-                                        <img src="{{ asset('assets/images/logo-dark.png') }}" class="card-logo card-logo-dark" alt="logo dark" height="30">
+
                                     </div>
                                     <div class="flex-shrink-0 mt-sm-0 mt-3">
                                         <h3>Production Receipt</h3>
@@ -34,19 +34,11 @@
                                     </div>
                                     <div class="col-lg-2 col-6">
                                         <p class="text-muted mb-2 text-uppercase fw-semibold">Quantity</p>
-                                        <h5 class="fs-14 mb-0">{{ number_format($production->qty / $production->unit->value, 2) }} {{ $production->unit->name }}</h5>
+                                        <h5 class="fs-14 mb-0">{{ number_format($production->qty, 2) }}</h5>
                                     </div>
                                     <div class="col-lg-2 col-6">
-                                        <p class="text-muted mb-2 text-uppercase fw-semibold">Cost per Unit</p>
-                                        <h5 class="fs-14 mb-0">{{ number_format($production->totalcost /$production->qty, 2) }}</h5>
-                                    </div>
-                                    <div class="col-lg-2 col-6">
-                                        <p class="text-muted mb-2 text-uppercase fw-semibold">Total Cost</p>
-                                        <h5 class="fs-14 mb-0">{{ number_format($production->totalcost, 2) }}</h5>
-                                    </div>
-                                    <div class="col-lg-2 col-6">
-                                        <p class="text-muted mb-2 text-uppercase fw-semibold">Batch No.</p>
-                                        <h5 class="fs-14 mb-0"><span id="total-amount">{{ $production->batchNumber }}</span></h5>
+                                        <p class="text-muted mb-2 text-uppercase fw-semibold">Cost</p>
+                                        <h5 class="fs-14 mb-0">{{ number_format($production->cost, 2) }}</h5>
                                     </div>
                                     <div class="col-lg-2 col-6">
                                         <p class="text-muted mb-2 text-uppercase fw-semibold">Date</p>
@@ -66,16 +58,14 @@
                                                 <th scope="col" style="width: 50px;">#</th>
                                                 <th scope="col" class="text-start">Item</th>
                                                 <th scope="col" class="text-end">Qty</th>
-                                                <th scope="col" class="text-end">Cost</th>
                                             </tr>
                                         </thead>
                                         <tbody id="products-list">
                                            @foreach ($production->details as $key => $item)
                                                <tr>
                                                 <td>{{$key+1}}</td>
-                                                <td class="text-start">{{$item->material->name}}</td>
-                                                <td class="text-end">{{number_format($item->qty / $item->unit->value, 2)}} {{ $item->unit->name }}</td>
-                                                <td class="text-end">{{number_format($item->cost, 2)}}</td>
+                                                <td class="text-start">{{$item->product->name}}</td>
+                                                <td class="text-end">{{number_format($item->qty, 2)}}</td>
                                                </tr>
                                            @endforeach
                                         </tbody>

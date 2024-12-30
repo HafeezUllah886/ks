@@ -22,7 +22,7 @@ class production extends Model
 
     public function details()
     {
-        return $this->belongsToMany(productiondetails::class, 'productiondetails', 'productionID', 'productID')->withPivot('qty', 'refID');
+        return $this->hasMany(productiondetails::class, 'productionID');
     }
 
     public function warehouse()
