@@ -88,15 +88,13 @@ return [
     'locale' => env('APP_LOCALE', 'en'),
 
     'domains' => [
-        'amhak.test',
-        'yaseen-s.test',
-        'etemad.nexgenpakistan.com',
+        'ks.nexgenpakistan.com',
         'testyaseen.diamondquetta.com',
         'yaseen.run',
     ],
 
     'databases' => [
-        'u676177725_etemad',
+        'u676177725_ks',
         'test',
     ],
 
