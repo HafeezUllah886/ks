@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\production;
 use App\Http\Controllers\Controller;
 use App\Models\accounts;
+use App\Models\productiondetails;
 use App\Models\products;
 use App\Models\warehouses;
 use Exception;
@@ -60,7 +61,9 @@ class ProductionController extends Controller
 
         foreach($request->ids as $key => $id)
         {
-            $production->details()->attach($id, [
+            productiondetails::create([
+                'productionID' => $production->id,
+                'productID' => $id,
                 'qty' => $request->quantity[$key],
                 'date' => $request->date,
                 'refID' => $ref,
