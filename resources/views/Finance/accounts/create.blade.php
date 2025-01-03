@@ -75,6 +75,13 @@
                                         class="form-control">
                                 </div>
                             </div>
+                            <div class="col-6 mt-2 customer" >
+                                <div class="form-group">
+                                    <label for="tax">Tax No.</label>
+                                    <input type="text" name="tax" id="tax" value="{{ old('tax') }}"
+                                        class="form-control">
+                                </div>
+                            </div>
 
                             <div class="col-12 mt-2">
                                 <div class="form-group">
