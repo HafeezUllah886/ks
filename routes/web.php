@@ -21,6 +21,7 @@ require __DIR__ . '/quot.php';
 require __DIR__ . '/todo.php';
 require __DIR__ . '/ajaxRequests.php';
 require __DIR__ . '/production.php';
+require __DIR__ . '/invoice.php';
 
 Route::middleware('auth')->group(function () {
 

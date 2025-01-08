@@ -79,6 +79,23 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="#invoice" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarApps">
+                        <i class="ri-shopping-cart-fill"></i><span data-key="t-apps">Commerial Invoice</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="invoice">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a onclick="newWindow('{{ route('invoice.create') }}')" class="nav-link"
+                                    data-key="t-chat">Create Invoice</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('invoice.index') }}" class="nav-link" data-key="t-chat"> Invoice History</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#quot" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarApps">
                         <i class="ri-shopping-cart-fill"></i><span data-key="t-apps">Quotation</span>
