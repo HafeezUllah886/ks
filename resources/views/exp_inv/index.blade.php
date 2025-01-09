@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h3>Sales</h3>
+                    <h3>Commerial Invoices</h3>
 
                 </div>
                 <div class="card-body">
@@ -21,23 +21,24 @@
                     <table class="table" id="buttons-datatables">
                         <thead>
                             <th>#</th>
+                            <th>Product</th>
                             <th>Customer</th>
                             <th>Date</th>
+                            <th>Valid Till</th>
+                            <th>M.Ton</th>
                             <th>Amount</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
-                            @foreach ($sales as $key => $sale)
-                                @php
-                                    $amount = $sale->total;
-                                    $paid = $sale->payments->sum('amount');
-                                    $due = $amount - $paid;
-                                @endphp
+                            @foreach ($invoices as $key => $invoice)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $sale->customer->title }}</td>
-                                    <td>{{ date('d M Y', strtotime($sale->date)) }}</td>
-                                    <td>{{ number_format($amount) }}</td>
+                                    <td>{{ $invoice->product->name }}</td>
+                                    <td>{{ $invoice->customer->title }}</td>
+                                    <td>{{ date('d M Y', strtotime($invoice->date)) }}</td>
+                                    <td>{{ date('d M Y', strtotime($invoice->valid)) }}</td>
+                                    <td>{{ number_format($invoice->qty) }}</td>
+                                    <td>{{ number_format($invoice->amount) }}</td>
                                    
                                     <td>
                                         <div class="dropdown">
@@ -47,30 +48,24 @@
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-end">
                                                 <li>
-                                                    <button class="dropdown-item" onclick="newWindow('{{route('sale.show', $sale->id)}}')"
+                                                    <button class="dropdown-item" onclick="newWindow('{{route('invoice.show', $invoice->id)}}')"
                                                         onclick=""><i
                                                             class="ri-eye-fill align-bottom me-2 text-muted"></i>
                                                         View
                                                     </button>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" onclick="newWindow('{{route('sale.edit', $sale->id)}}')">
+                                                    <a class="dropdown-item" onclick="newWindow('{{route('invoice.edit', $invoice->id)}}')">
                                                         <i class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                                         Edit
                                                     </a>
                                                 </li>
-                                               {{--  <li>
-                                                    <a class="dropdown-item" onclick="newWindow('{{route('salePayment.index', $sale->id)}}')">
-                                                        <i class="ri-money-dollar-circle-fill align-bottom me-2 text-muted"></i>
-                                                        Payments
-                                                    </a>
-                                                </li> --}}
-                                                <li>
-                                                    <a class="dropdown-item text-danger" href="{{route('sale.delete', $sale->id)}}">
+                                                {{-- <li>
+                                                    <a class="dropdown-item text-danger" href="{{route('invoice.delete', $invoice->id)}}">
                                                         <i class="ri-delete-bin-2-fill align-bottom me-2 text-danger"></i>
                                                         Delete
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </div>
                                     </td>
@@ -78,9 +73,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
-                <div class="card-footer">
-                    {{$sales->links()}}
                 </div>
             </div>
         </div>

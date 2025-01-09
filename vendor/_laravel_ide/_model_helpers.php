@@ -17,13 +17,18 @@ namespace App\Models {
      * @property date $valid
      * @property date $date
      * @property string $pi
-     * @property double $amount
+     * @property double|null $amount
      * @property double $price
-     * @property double $qty
+     * @property double|null $qty
      * @property int $productID
      * @property int $accountID
      * @property int $customerID
      * @property int $id
+     * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\InvoiceContainers> $details
+     * @property-read int|null $details_count
+     * @property-read \App\Models\products $product
+     * @property-read \App\Models\accounts $customer
+     * @property-read \App\Models\accounts $account
      * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereCustomerid($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereAccountid($value)
@@ -281,16 +286,24 @@ namespace App\Models {
      *
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
-     * @property double $size
+     * @property double $totalpp
+     * @property double $net
+     * @property double $gross
      * @property double $qty
+     * @property double $packs_pp
+     * @property double $size
      * @property string $container
      * @property int $invoiceID
      * @property int $id
      * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereInvoiceid($value)
      * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereContainer($value)
-     * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereQty($value)
      * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereSize($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers wherePacksPp($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereQty($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereGross($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereNet($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereTotalpp($value)
      * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|InvoiceContainers newModelQuery()

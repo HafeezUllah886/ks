@@ -70,10 +70,7 @@
 
                             </div>
                             <div class="card-footer">
-
                                 <p><strong>Notes: </strong> {{$payment->notes}}</p>
-
-
                             </div>
                             <!--end card-body-->
                         </div><!--end col-->

@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('invoiceID')->constrained('invoices', 'id');
             $table->string('container');
-            $table->float('qty');
             $table->float('size');
+            $table->float('packs_pp');
+            $table->float('qty');
+            $table->float('gross');
+            $table->float('net');
+            $table->float('totalpp');
             $table->timestamps();
         });
     }
